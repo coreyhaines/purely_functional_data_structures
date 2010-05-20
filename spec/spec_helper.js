@@ -12,7 +12,7 @@ exports.lib_require = function lib_require(module){
   return require('../lib/' + module);
 };
 
-exports.expect = function(condition, message){
+function expect(condition, message){
   if(message){
     sys.puts(message);
   }
@@ -21,4 +21,13 @@ exports.expect = function(condition, message){
   }else{
     sys.puts('.');
   }
-};
+  return condition;
+}
+exports.expect = expect;
+
+function expect_equal(expected, actual, message) {
+  if(!expect(expected === actual, message)){
+    sys.puts("Expected: " + sys.inspect(expected) + "\nBut got:  " + sys.inspect(actual));
+  }
+}
+exports.expect_equal = expect_equal;
