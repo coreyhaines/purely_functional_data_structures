@@ -27,7 +27,7 @@ exports.expect = expect;
 
 function expect_equal(expected, actual, message) {
   if(!expect(expected === actual, message)){
-    sys.puts("Expected: " + sys.inspect(expected) + "\nBut got:  " + sys.inspect(actual));
+    sys.puts("Expected: " + sys.inspect(expected, true) + "\nBut got:  " + sys.inspect(actual, true));
   }
 }
 exports.expect_equal = expect_equal;
