@@ -13,13 +13,11 @@ exports.lib_require = function lib_require(module){
 };
 
 exports.expect = function(condition, message){
+  if(message){
+    sys.puts(message);
+  }
   if(!condition){
     sys.puts('F');
-    if(message){
-      sys.puts(message);
-    }else{
-      sys.puts('expected ' + condition + ' to be true');
-    }
   }else{
     sys.puts('.');
   }
