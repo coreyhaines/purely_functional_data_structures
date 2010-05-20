@@ -8,6 +8,17 @@ var sys = require('sys'),
 
 
 (function() {
+  sys.puts("first list is empty");
+  var list1 = emptyList;
+  var list2 = emptyList.cons(2);
+  var sum = list1.add(list2);
+
+  (function() {
+    expect_equal(list2, sum, "sum is the second list");
+  }());
+}());
+
+(function() {
   sys.puts("Adding single-element lists");
   var list1 = emptyList.cons(1);
   var list2 = emptyList.cons(2);
