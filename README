@@ -1,0 +1,12 @@
+This is a repo that I will be using for working through the book 'Purely Functional Data Structures' in javascript.
+
+Thanks to Anthony Green (rarepleasures) for the book last fall.
+
+I'm using node.js to run my tests, you can use the following command:
+
+node <path_to_spec_file>
+
+ex:
+node spec/ch2/list_spec.js
+
+I am using the common.js module format that node supports, so you probably could port them easily to another javascript runner.
