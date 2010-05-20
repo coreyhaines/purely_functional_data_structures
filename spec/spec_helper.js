@@ -6,11 +6,15 @@ exports.spies = spies;
 function p(it){
   sys.puts(sys.inspect(it));
 }
+exports.p = p;
 
-exports.p = p
-
-function lib_require(module){
+exports.lib_require = function lib_require(module){
   return require('../lib/' + module);
-}
+};
 
-exports.lib_require = lib_require;
+exports.expect = function(condition){
+  if(!condition){
+    p("expected " + condition + " to be true");
+    throw "Expectation exception";
+  }
+};
