@@ -33,4 +33,14 @@ var sys = require('sys'),
       expect_equal('a', updated.head(), 'retains first part of list');
       expect_equal('c', updated.tail().tail().head(), "retains last part of list");
     }());
+
+    (function() {
+      var updated = list.update(0, 'hello');
+      expect_equal(list, updated, "does not change list for index of 0");
+    }());
+
+    (function() {
+      var updated2 = list.update(-5, 'hello');
+      expect_equal(list, updated2, "does not change list for negative index");
+    }());
 }());
