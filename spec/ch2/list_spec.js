@@ -34,8 +34,8 @@ var sys = require('sys'),
   expect('undefined' === typeof empty.tail(), "empty list has undefined tail");
 }());
 
-// (function() {
-  // var nonEmpty = list.empty.cons(1);
-  // expect(true === nonEmpty.tail().isEmpty(), "cons-ed list has empty tail");
-// }());
+(function() {
+  var nonEmpty = list.empty.cons(1);
+  expect('undefined' === typeof nonEmpty.tail(), "cons-ed list has undefined tail");
+}());
 
