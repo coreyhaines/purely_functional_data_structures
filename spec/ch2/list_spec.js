@@ -7,14 +7,14 @@ var sys = require('sys'),
     list = lib_require('ch2/list');
 
 (function() {
-  expect(true === list.empty.isEmpty(), "empty list is empty");
+  expect(list.empty.isEmpty(), "empty list is empty");
 }());
 
 
 (function() {
   var empty = list.empty;
   var nonEmpty = empty.cons(1);
-  expect(false === nonEmpty.isEmpty(), "cons makes list not empty");
+  expect(!nonEmpty.isEmpty(), "cons makes list not empty");
 }());
 
 (function() {
@@ -35,7 +35,7 @@ var sys = require('sys'),
 
 (function() {
   var nonEmpty = list.empty.cons(1);
-  expect(true === nonEmpty.tail().isEmpty(), "cons-ed list has empty tail");
+  expect(nonEmpty.tail().isEmpty(), "cons-ed list has empty tail");
 }());
 
 (function() {
