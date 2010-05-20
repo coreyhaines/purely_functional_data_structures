@@ -36,6 +36,12 @@ var sys = require('sys'),
 
 (function() {
   var nonEmpty = list.empty.cons(1);
-  expect('undefined' === typeof nonEmpty.tail(), "cons-ed list has undefined tail");
+  expect(true === nonEmpty.tail().isEmpty(), "cons-ed list has empty tail");
+}());
+
+(function() {
+  var firstCons = list.empty.cons(1);
+  var secondCons = firstCons.cons(2);
+  expect(1 === secondCons.tail().head(), "head of tail");
 }());
 
