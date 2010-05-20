@@ -11,14 +11,25 @@ sys.puts("Suffix");
 (function() {
     sys.puts("empty list");
     var list = emptyList;
-    expect(list.suffixes().head().isEmpty(), "empty list has list of the empty list");
+    var suffixes = list.suffixes();
+    (function() {
+      expect(suffixes.head().isEmpty(), "empty list has list of the empty list");
+    }());
+    (function() {
+      expect_equal('undefined', typeof suffixes.tail(), "empty list has undefined tail");
+    }());
 }());
 
 (function() {
     sys.puts("single element");
     var list = emptyList.cons('a');
+    var suffixes = list.suffixes();
 
     (function() {
-      expect_equal(list, list.suffixes().head(), "head of list is the single-element list");
+      expect_equal(list, suffixes.head(), "head of list is the single-element list");
+    }());
+
+    (function() {
+      expect(suffixes.tail().isEmpty(), "tail is empty list");
     }());
 }());
