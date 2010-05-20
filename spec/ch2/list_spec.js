@@ -8,9 +8,21 @@ var sys = require('sys'),
 
 
 (function() {
-  expect(true === list.empty.isEmpty(), "empty list should be empty");
+  expect(true === list.empty.isEmpty(), "empty list is empty");
 }());
 
+
+(function() {
+  var empty = list.empty;
+  var nonEmpty = empty.cons(1);
+  expect(false === nonEmpty.isEmpty(), "cons makes list not empty");
+}());
+
+(function() {
+  var empty = list.empty;
+  var nonEmpty = empty.cons(1);
+  expect(1 === nonEmpty.head(), "head returns what was just cons-ed");
+}());
 
 
 
