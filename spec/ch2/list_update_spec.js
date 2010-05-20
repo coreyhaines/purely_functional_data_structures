@@ -27,4 +27,10 @@ var sys = require('sys'),
       var updated = list.update(2, 'hello');
       expect_equal('hello', updated.tail().head(), "can update second element");
     }());
+
+    (function() {
+      var updated = list.update(2, 'hello');
+      expect_equal('a', updated.head(), 'retains first part of list');
+      expect_equal('c', updated.tail().tail().head(), "retains last part of list");
+    }());
 }());
