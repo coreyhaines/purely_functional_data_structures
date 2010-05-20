@@ -3,15 +3,13 @@ var sys = require('sys'),
     p = require('../spec_helper').p,
     lib_require = require('../spec_helper').lib_require,
     it = require('../spec_helper').it,
-    expect = require('../spec_helper').expect;
+    expect = require('../spec_helper').expect,
+    list = lib_require('ch2/list');
 
 
 (function() {
-  var list = lib_require('ch2/list').list;
-  expect(false === list.isEmpty(), "new list should be empty");
+  expect(true === list.empty.isEmpty(), "empty list should be empty");
 }());
-
-
 
 
 
