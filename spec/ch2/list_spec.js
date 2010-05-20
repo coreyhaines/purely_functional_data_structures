@@ -1,8 +1,8 @@
-var    sys = require('sys'),
-       spies = require('../spec_helper');
+var sys = require('sys'),
+    spies = require('../spec_helper').spies,
+    p = require('../spec_helper').p,
+    lib_require = require('../spec_helper').lib_require;
 
-function p(it){
-  sys.puts(sys.inspect(it));
-}
+var list = lib_require('list');
 
-p(spies);
+p(list);
