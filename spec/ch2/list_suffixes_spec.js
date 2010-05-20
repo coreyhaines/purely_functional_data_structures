@@ -10,6 +10,6 @@ var sys = require('sys'),
 (function() {
     sys.puts("empty list");
     var list = emptyList;
-    expect(list.suffixes().isEmpty(), "empty list has empty list for suffixes");
+    expect(list.suffixes().head().isEmpty(), "empty list has list of the empty list");
 }());
 
