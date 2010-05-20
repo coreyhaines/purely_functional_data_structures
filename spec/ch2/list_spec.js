@@ -25,5 +25,9 @@ var sys = require('sys'),
 }());
 
 
+(function() {
+  var empty = list.empty;
+  expect(true === empty.tail().isEmpty(), "empty list has empty tail");
+}());
 
 
