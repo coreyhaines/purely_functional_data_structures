@@ -26,6 +26,11 @@ var sys = require('sys'),
 
 (function() {
   var empty = list.empty;
+  expect('undefined' === typeof empty.head(), "empty list has undefined head");
+}());
+
+(function() {
+  var empty = list.empty;
   expect('undefined' === typeof empty.tail(), "empty list has undefined tail");
 }());
 
