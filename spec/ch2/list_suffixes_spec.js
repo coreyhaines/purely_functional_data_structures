@@ -18,6 +18,10 @@ sys.puts("Suffix");
     (function() {
       expect_equal('undefined', typeof suffixes.tail(), "empty list has undefined tail");
     }());
+
+    (function() {
+      expect_equal("[[]]", suffixes.toString(), "list containing empty list");
+    }());
 }());
 
 (function() {
@@ -31,5 +35,9 @@ sys.puts("Suffix");
 
     (function() {
       expect(suffixes.tail().isEmpty(), "tail is empty list");
+    }());
+
+    (function() {
+      expect_equal("[['a'],[]]", suffixes.toString(), "list containing single-element list and empty list");
     }());
 }());
