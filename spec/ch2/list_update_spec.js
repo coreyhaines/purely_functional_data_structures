@@ -15,3 +15,16 @@ var sys = require('sys'),
     expect_equal('b', updated.head(), "head gets updated");
 }());
 
+(function() {
+    sys.puts("multiple element list");
+    var list = emptyList.cons('c').cons('b').cons('a');
+    (function() {
+      var updated = list.update(1, 'b');
+      expect_equal('b', updated.head(), "can update head");
+    }());
+
+    (function() {
+      var updated = list.update(2, 'hello');
+      expect_equal('hello', updated.tail().head(), "can update second element");
+    }());
+}());
