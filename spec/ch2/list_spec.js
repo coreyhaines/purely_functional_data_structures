@@ -24,10 +24,10 @@ var sys = require('sys'),
   expect(1 === nonEmpty.head(), "head returns what was just cons-ed");
 }());
 
-// (function() {
-  // var empty = list.empty;
-  // expect(true === empty.tail().isEmpty(), "empty list has empty tail");
-// }());
+(function() {
+  var empty = list.empty;
+  expect('undefined' === typeof empty.tail(), "empty list has undefined tail");
+}());
 
 // (function() {
   // var nonEmpty = list.empty.cons(1);
