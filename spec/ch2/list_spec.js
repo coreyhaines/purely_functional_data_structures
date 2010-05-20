@@ -8,7 +8,7 @@ var sys = require('sys'),
 
 (function() {
   var list = lib_require('ch2/list').list;
-  expect(false === list.isEmpty());
+  expect(false === list.isEmpty(), "new list should be empty");
 }());
 
 
