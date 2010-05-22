@@ -11,5 +11,5 @@ node spec/ch2/list_spec.js
 
 I am using the common.js module format that node supports, so you probably could port them easily to another javascript runner.
 
+Umm.... AWESOME! Cucumber features instead of javascript specs.
 
-WOOHOO! I just found out that cucumber has v8 support, so I'll be switching to that for my specifications. Once again saved from developing a testing framework!
