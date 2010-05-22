@@ -23,3 +23,8 @@ Feature: Lists
   Scenario: cons-ed list has empty tail
     When I cons "foo"
     Then the tail should be empty
+
+  Scenario: getting the head of the tail
+    When I cons "foo"
+    And I cons "bar"
+    Then the head of the tail should be "foo"

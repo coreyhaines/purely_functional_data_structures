@@ -37,3 +37,8 @@ Then(/^the tail should be undefined$/, function(){
 Then(/^the tail should be empty$/, function(){
   assertEqual(true, listUnderTest.tail().isEmpty());
 });
+
+
+Then(/^the head of the tail should be "([^\"]*)"$/, function(value){
+  assertEqual(value, listUnderTest.tail().head());
+});
