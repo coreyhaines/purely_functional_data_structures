@@ -14,6 +14,9 @@ Then(/^it should be empty$/, function() {
   assertEqual(true, listUnderTest.isEmpty());
 });
 
+Then(/^it should not be empty$/, function() {
+  assertEqual(false, listUnderTest.isEmpty());
+});
 Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
   assertEqual(listRepresentation, listUnderTest.toString());
 });

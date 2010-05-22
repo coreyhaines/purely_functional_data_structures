@@ -3,9 +3,9 @@ Feature: Lists
   Background: Set up the list
     Given an empty list
 
-  Scenario: initializes empty
+  Scenario: empty list is empty
     Then it should be empty
 
-  Scenario: single cons
+  Scenario: cons makes list not empty
     When I cons "1"
-    Then it should be "[1]"
+    Then it should not be empty
