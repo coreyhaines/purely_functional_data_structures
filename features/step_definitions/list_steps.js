@@ -22,6 +22,10 @@ Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
   assertEqual(listRepresentation, listUnderTest.toString());
 });
 
-Then (/^the head should be "([^\"]*)"$/, function(head){
+Then(/^the head should be "([^\"]*)"$/, function(head){
   assertEqual(head, listUnderTest.head());
+});
+
+Then(/^the head should be undefined$/, function(){
+  assertEqual('undefined', typeof listUnderTest.head());
 });

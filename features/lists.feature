@@ -13,3 +13,6 @@ Feature: Lists
   Scenario: head returns what was just cons-ed
     When I cons "a"
     Then the head should be "a"
+
+  Scenario: empty list has undefined head
+    Then the head should be undefined
