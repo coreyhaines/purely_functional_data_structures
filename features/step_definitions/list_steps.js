@@ -1,14 +1,20 @@
-Given(/^an empty list$/, function(){
-  list = exports.empty;
+Before(function(){
+  listUnderTest = null;
 });
 
-When(/^I cons "([^"]*)"$/, function() {
+Given(/^an empty list$/, function(){
+  listUnderTest = exports.empty;
+});
+
+When(/^I cons "([^"]*)"$/, function(item) {
+  listUnderTest = listUnderTest.cons(item);
 });
 
 Then(/^it should be empty$/, function() {
-  assertEqual(true, list.isEmpty());
+  assertEqual(true, listUnderTest.isEmpty());
 });
 
-Then(/^it should be "([^"]*)"$/, function() {
+Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
+  assertEqual(listRepresentation, listUnderTest.toString());
 });
 
