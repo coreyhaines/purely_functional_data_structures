@@ -19,3 +19,7 @@ Feature: Lists
 
   Scenario: empty list has undefined tail
     Then the tail should be undefined
+
+  Scenario: cons-ed list has empty tail
+    When I cons "foo"
+    Then the tail should be empty

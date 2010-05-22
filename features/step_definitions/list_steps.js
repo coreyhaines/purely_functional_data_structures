@@ -33,3 +33,7 @@ Then(/^the head should be undefined$/, function(){
 Then(/^the tail should be undefined$/, function(){
   assertEqual('undefined', typeof listUnderTest.tail());
 });
+
+Then(/^the tail should be empty$/, function(){
+  assertEqual(true, listUnderTest.tail().isEmpty());
+});
