@@ -17,7 +17,11 @@ Then(/^it should be empty$/, function() {
 Then(/^it should not be empty$/, function() {
   assertEqual(false, listUnderTest.isEmpty());
 });
+
 Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
   assertEqual(listRepresentation, listUnderTest.toString());
 });
 
+Then (/^the head should be "([^\"]*)"$/, function(head){
+  assertEqual(head, listUnderTest.head());
+});

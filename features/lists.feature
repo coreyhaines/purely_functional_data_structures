@@ -9,3 +9,7 @@ Feature: Lists
   Scenario: cons makes list not empty
     When I cons "1"
     Then it should not be empty
+
+  Scenario: head returns what was just cons-ed
+    When I cons "a"
+    Then the head should be "a"
