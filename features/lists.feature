@@ -16,3 +16,6 @@ Feature: Lists
 
   Scenario: empty list has undefined head
     Then the head should be undefined
+
+  Scenario: empty list has undefined tail
+    Then the tail should be undefined

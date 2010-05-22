@@ -29,3 +29,7 @@ Then(/^the head should be "([^\"]*)"$/, function(head){
 Then(/^the head should be undefined$/, function(){
   assertEqual('undefined', typeof listUnderTest.head());
 });
+
+Then(/^the tail should be undefined$/, function(){
+  assertEqual('undefined', typeof listUnderTest.tail());
+});
