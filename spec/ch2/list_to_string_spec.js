@@ -13,3 +13,9 @@ sys.puts("toString");
 }());
 
 
+(function() {
+  sys.puts("Single element");
+  expect_equal("['a']", list.empty.cons('a').toString(), "renders as ['a']");
+}());
+
+
