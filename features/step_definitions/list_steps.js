@@ -67,3 +67,16 @@ Then (/^the head of the sum equals the head of "([^\"]*)"$/, function(listName){
 Then (/^the tail of the sum equals "([^\"]*)"$/, function(listName){
   assertEqual(this[listName], sum.tail());
 });
+
+Then (/^the head of the sum is "([^\"]*)"$/, function(arg1){
+  pending("head of the sum");
+});
+
+Then (/^the head of the tail of the sum is "([^\"]*)"$/, function(arg1){
+  pending("the head of the tail of the sum");
+});
+
+Then (/^the head of the tail of the tail of the sum is "([^\"]*)"$/, function(arg1){
+  pending("the head of the tail of the tail of the sum");
+});
+

@@ -9,3 +9,7 @@ function assertMatches(expected, actual){
     throw 'Expected <' + expected + "> to contain <" + actual + "> but it did not";
   }
 }
+
+function pending(msg){
+  throw 'pending step: ' + msg;
+}
