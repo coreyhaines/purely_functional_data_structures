@@ -18,8 +18,8 @@ When(/^I cons "([^"]*)" to "([^"]*)"$/, function(item, listName) {
   this[listName] = this[listName].cons(item);
 });
 
-When(/^I add "([^"]*)" to "([^"]*)"$/, function(list1Name, list2Name) {
-  sum = this[list1Name].add(this[list2Name]);
+When(/^I add "([^"]*)" and "([^"]*)"$/, function(augend, addend) {
+  sum = this[augend].add(this[addend]);
 });
 
 Then(/^it should be empty$/, function() {
@@ -57,4 +57,13 @@ Then(/^the tail should be empty$/, function(){
 
 Then(/^the head of the tail should be "([^\"]*)"$/, function(value){
   assertEqual(value, listUnderTest.tail().head());
+});
+
+
+Then (/^the head of the sum equals the head of "([^\"]*)"$/, function(listName){
+  assertEqual(this[listName].head(), sum.head());
+});
+
+Then (/^the tail of the sum equals "([^\"]*)"$/, function(listName){
+  assertEqual(this[listName], sum.tail());
 });
