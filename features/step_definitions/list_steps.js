@@ -1,5 +1,5 @@
 Given(/^an empty list$/, function(){
-  this["list"] = exports.empty;
+  this["defaultList"] = exports.empty;
 });
 
 Given(/^an empty list "([^"]*)"$/, function(name){
@@ -13,7 +13,7 @@ Given(/^"([^"]*)" as a list$/, function(itemsString){
   }else{
    items = itemsString.split(',');
   }
-  this["list"] = exports.listFromArray(items);
+  this["defaultList"] = exports.listFromArray(items);
 });
 
 Given(/^"([^"]*)" as "([^"]*)"$/, function(itemsString, listName){
@@ -27,7 +27,7 @@ Given(/^"([^"]*)" as "([^"]*)"$/, function(itemsString, listName){
 });
 
 When(/^I cons "([^"]*)"$/, function(item) {
-  this["list"] = this["list"].cons(item);
+  this["defaultList"] = this["defaultList"].cons(item);
 });
 
 When(/^I cons "([^"]*)" to "([^"]*)"$/, function(item, listName) {
@@ -39,15 +39,15 @@ When(/^I add "([^"]*)" and "([^"]*)"$/, function(augend, addend) {
 });
 
 Then(/^it should be empty$/, function() {
-  assertEqual(true, this["list"].isEmpty());
+  assertEqual(true, this["defaultList"].isEmpty());
 });
 
 Then(/^it should not be empty$/, function() {
-  assertEqual(false, this["list"].isEmpty());
+  assertEqual(false, this["defaultList"].isEmpty());
 });
 
 Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
-  assertEqual(listRepresentation, this["list"].toString());
+  assertEqual(listRepresentation, this["defaultList"].toString());
 });
 
 Then(/^the sum should equal "([^"]*)"$/, function(listName) {
@@ -55,23 +55,23 @@ Then(/^the sum should equal "([^"]*)"$/, function(listName) {
 });
 
 Then(/^the head should be "([^\"]*)"$/, function(head){
-  assertEqual(head, this["list"].head());
+  assertEqual(head, this["defaultList"].head());
 });
 
 Then(/^the head should be undefined$/, function(){
-  assertEqual('undefined', typeof this["list"].head());
+  assertEqual('undefined', typeof this["defaultList"].head());
 });
 
 Then(/^the tail should be undefined$/, function(){
-  assertEqual('undefined', typeof this["list"].tail());
+  assertEqual('undefined', typeof this["defaultList"].tail());
 });
 
 Then(/^the tail should be empty$/, function(){
-  assertEqual(true, this["list"].tail().isEmpty());
+  assertEqual(true, this["defaultList"].tail().isEmpty());
 });
 
 Then(/^the head of the tail should be "([^\"]*)"$/, function(value){
-  assertEqual(value, this["list"].tail().head());
+  assertEqual(value, this["defaultList"].tail().head());
 });
 
 
