@@ -1,10 +1,7 @@
-Feature: Adding Lists Together
+Feature: Adding Lists
 
-  Background: Set up the lists
+  Scenario: adding to an empty list yields second list
     Given an empty list "list1"
-    And an empty list "list2"
-
-  Scenario: first list is empty yields second list
     When I cons "2" to "list2"
     And I add "list1" and "list2"
     Then the sum should equal "list2"

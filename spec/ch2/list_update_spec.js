@@ -1,4 +1,3 @@
-
 var sys = require('sys'),
     p = require('../spec_helper').p,
     lib_require = require('../spec_helper').lib_require,
