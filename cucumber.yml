@@ -1,1 +1,1 @@
-default: -r lib -r features
+default: -r lib/compiled -r features
