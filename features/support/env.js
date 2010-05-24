@@ -1,5 +1,5 @@
 function assertEqual(expected, actual){
-  if(expected != actual){
+  if(expected !== actual){
     throw 'Expected <' + expected + "> but got <" + actual + ">";
   }
 }

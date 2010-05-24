@@ -1,17 +1,33 @@
-Before(function(){
-  listUnderTest = null;
-});
-
 Given(/^an empty list$/, function(){
-  listUnderTest = exports.empty;
+  this["list"] = exports.empty;
 });
 
 Given(/^an empty list "([^"]*)"$/, function(name){
   this[name] = exports.empty;
 });
 
+Given(/^"([^"]*)" as a list$/, function(itemsString){
+  var items;
+  if(itemsString.length === 0){
+    items = [];
+  }else{
+   items = itemsString.split(',');
+  }
+  this["list"] = exports.listFromArray(items);
+});
+
+Given(/^"([^"]*)" as "([^"]*)"$/, function(itemsString, listName){
+  var items;
+  if(itemsString.length === 0){
+    items = [];
+  }else{
+   items = itemsString.split(',');
+  }
+  this[listName] = exports.listFromArray(items);
+});
+
 When(/^I cons "([^"]*)"$/, function(item) {
-  listUnderTest = listUnderTest.cons(item);
+  this["list"] = this["list"].cons(item);
 });
 
 When(/^I cons "([^"]*)" to "([^"]*)"$/, function(item, listName) {
@@ -23,15 +39,15 @@ When(/^I add "([^"]*)" and "([^"]*)"$/, function(augend, addend) {
 });
 
 Then(/^it should be empty$/, function() {
-  assertEqual(true, listUnderTest.isEmpty());
+  assertEqual(true, this["list"].isEmpty());
 });
 
 Then(/^it should not be empty$/, function() {
-  assertEqual(false, listUnderTest.isEmpty());
+  assertEqual(false, this["list"].isEmpty());
 });
 
 Then(/^it should be "([^"]*)"$/, function(listRepresentation) {
-  assertEqual(listRepresentation, listUnderTest.toString());
+  assertEqual(listRepresentation, this["list"].toString());
 });
 
 Then(/^the sum should equal "([^"]*)"$/, function(listName) {
@@ -39,44 +55,47 @@ Then(/^the sum should equal "([^"]*)"$/, function(listName) {
 });
 
 Then(/^the head should be "([^\"]*)"$/, function(head){
-  assertEqual(head, listUnderTest.head());
+  assertEqual(head, this["list"].head());
 });
 
 Then(/^the head should be undefined$/, function(){
-  assertEqual('undefined', typeof listUnderTest.head());
+  assertEqual('undefined', typeof this["list"].head());
 });
 
 Then(/^the tail should be undefined$/, function(){
-  assertEqual('undefined', typeof listUnderTest.tail());
+  assertEqual('undefined', typeof this["list"].tail());
 });
 
 Then(/^the tail should be empty$/, function(){
-  assertEqual(true, listUnderTest.tail().isEmpty());
+  assertEqual(true, this["list"].tail().isEmpty());
 });
-
 
 Then(/^the head of the tail should be "([^\"]*)"$/, function(value){
-  assertEqual(value, listUnderTest.tail().head());
+  assertEqual(value, this["list"].tail().head());
 });
 
 
-Then (/^the head of the sum equals the head of "([^\"]*)"$/, function(listName){
-  assertEqual(this[listName].head(), sum.head());
+Then(/^the head of the sum equals the head of "([^\"]*)"$/, function(listName){
+  assertEqual(this[listName].head(), this["sum"].head());
 });
 
-Then (/^the tail of the sum equals "([^\"]*)"$/, function(listName){
-  assertEqual(this[listName], sum.tail());
+Then(/^the tail of the sum equals "([^\"]*)"$/, function(listName){
+  assertEqual(this[listName], this["sum"].tail());
 });
 
-Then (/^the head of the sum is "([^\"]*)"$/, function(arg1){
+Then(/^the head of the sum is "([^\"]*)"$/, function(arg1){
   pending("head of the sum");
 });
 
-Then (/^the head of the tail of the sum is "([^\"]*)"$/, function(arg1){
+Then(/^the head of the tail of the sum is "([^\"]*)"$/, function(arg1){
   pending("the head of the tail of the sum");
 });
 
-Then (/^the head of the tail of the tail of the sum is "([^\"]*)"$/, function(arg1){
+Then(/^the head of the tail of the tail of the sum is "([^\"]*)"$/, function(arg1){
   pending("the head of the tail of the tail of the sum");
+});
+
+Then(/^the sum should be "([^\"]*)"$/, function(sum){
+  assertEqual(exports.listFromArray(sum.split(',')).toString(), this['sum'].toString());
 });
 

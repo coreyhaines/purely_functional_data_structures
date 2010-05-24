@@ -28,3 +28,7 @@ Feature: Lists
     When I cons "foo"
     And I cons "bar"
     Then the head of the tail should be "foo"
+
+  Scenario: toString for single element
+    When I cons "foo"
+    Then it should be "foo, "
