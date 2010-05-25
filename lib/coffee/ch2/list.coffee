@@ -1,8 +1,10 @@
-list: () -> {
-  isEmpty: () -> true
+list: (empty, x) -> {
+  isEmpty: () -> not x?
+  cons: (x) -> list(false, x)
+  head: () -> x
 }
 
 exports: {}
 
-exports.empty: list()
+exports.empty: list(true)
 
